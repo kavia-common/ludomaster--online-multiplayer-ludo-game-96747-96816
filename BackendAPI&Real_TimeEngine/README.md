@@ -21,6 +21,14 @@ npm run dev
 
 API docs available at `/docs`.
 
+## Database setup
+
+If you need to initialize MongoDB collections and indexes locally, run the initializer from the database workspace:
+
+node ../ludomaster--online-multiplayer-ludo-game-96747-96817/Database_MongoDB/scripts/initSchema.js
+
+Ensure MONGODB_URI and MONGODB_DB_NAME are set in your environment.
+
 ## WebSocket
 
 - Endpoint path: `/realtime`
