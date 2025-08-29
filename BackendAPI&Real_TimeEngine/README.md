@@ -19,15 +19,28 @@ npm install
 npm run dev
 ```
 
-API docs available at `/docs`.
+- API docs available at `/docs` (Swagger UI).
+- Health check at `/api/health`.
+- WebSocket usage guide at `/api/ws-info`.
+
+## Environment Variables
+
+See `.env.example` for required variables:
+- MONGODB_URI: MongoDB connection string
+- JWT_SECRET: Secret to sign JWTs
+- CORS_ORIGIN: Comma-separated list of allowed origins (e.g., http://localhost:3000)
+- PORT: Server port (default 4000)
+- SERVER_PUBLIC_URL: Public URL for swagger server block
 
 ## Database setup
 
 If you need to initialize MongoDB collections and indexes locally, run the initializer from the database workspace:
 
+```
 node ../ludomaster--online-multiplayer-ludo-game-96747-96817/Database_MongoDB/scripts/initSchema.js
+```
 
-Ensure MONGODB_URI and MONGODB_DB_NAME are set in your environment.
+Ensure MONGODB_URI is set in your environment.
 
 ## WebSocket
 
@@ -56,4 +69,5 @@ chat.emit('message', { roomId, username, text: 'Hi' });
 ## Notes
 - For horizontal scaling, move `gameStates` to a shared store (e.g., Redis) and configure Socket.IO adapter.
 - Passwords are hashed with bcrypt; JWT protects private routes.
+- Rate limiting, Helmet, and XSS clean are enabled.
 - This codebase is a solid foundation and can be extended with richer Ludo rules and moderation.

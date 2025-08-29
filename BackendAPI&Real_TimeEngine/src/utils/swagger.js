@@ -7,6 +7,7 @@ export const openapiTags = [
   { name: 'Realtime', description: 'WebSocket endpoints and usage' }
 ];
 
+// PUBLIC_INTERFACE
 export const swaggerDefinition = {
   openapi: '3.0.0',
   info: {
